@@ -1,0 +1,16 @@
+using UnityEngine;
+using System.Collections;
+
+public class HitObjects : MonoBehaviour {
+
+	void Update () { 
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Input.GetButtonDown("Fire1")) 
+			if (Physics.Raycast(ray, out hit)) { 
+				if (hit.rigidbody)
+					hit.rigidbody.AddForce(ray.direction*10, ForceMode.Impulse);
+			}
+	}
+
+}
