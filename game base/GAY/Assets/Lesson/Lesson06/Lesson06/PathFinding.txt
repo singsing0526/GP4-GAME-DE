@@ -1,0 +1,17 @@
+using UnityEngine;
+using System.Collections;
+
+public class PathFinding : MonoBehaviour {
+
+	NavMeshAgent NM;
+	Transform Player;
+
+	void Start () {
+		NM = GetComponent<NavMeshAgent>();
+		Player = GameObject.FindWithTag("Player").transform;
+	}
+	
+	void Update () {
+		NM.SetDestination (Player.position);
+	}
+}
